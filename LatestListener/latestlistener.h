@@ -5,7 +5,7 @@
 #include <QtMultimedia/QMediaPlayer>
 #include <QtNetwork/QNetworkAccessManager>
 #include <QtNetwork/QNetworkReply>
-#include <string>
+#include <vector>
 #include "ui_latestlistener.h"
 
 class LatestListener : public QWidget
@@ -17,10 +17,10 @@ public:
 	~LatestListener();
 
 private:
-	std::string url_encode(const std::string& str, bool space_to_plus = false);
 
 public slots:
 	void listen_btn_pushed();
+	void music_player_changed(QMediaPlayer::State);
 	void api_request_finished(QNetworkReply*);
 	void img_request_finished(QNetworkReply*);
 
@@ -29,6 +29,12 @@ private:
 	QMediaPlayer *m_player;
 	QNetworkAccessManager *api_manager;
 	QNetworkAccessManager *img_manager;
+	std::vector<QString> *song_urls;
+	std::vector<QString> *artworks;
+	std::vector<QString> *titles;
+	std::vector<QString> *artists;
+	unsigned int play_index;
+	
 };
 
 #endif // LATESTLISTENER_H
