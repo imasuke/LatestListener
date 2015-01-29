@@ -2,74 +2,273 @@
 <ui version="4.0">
  <class>LatestListenerClass</class>
  <widget class="QWidget" name="LatestListenerClass">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>400</height>
+    <width>400</width>
+    <height>200</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>LatestListener</string>
   </property>
-  <widget class="QPushButton" name="listen_btn">
+  <property name="styleSheet">
+   <string notr="true">#LatestListenerClass{
+background: white;
+}</string>
+  </property>
+  <widget class="QStackedWidget" name="stack">
    <property name="geometry">
     <rect>
-     <x>210</x>
-     <y>330</y>
-     <width>171</width>
-     <height>23</height>
+     <x>0</x>
+     <y>0</y>
+     <width>400</width>
+     <height>200</height>
     </rect>
    </property>
-   <property name="text">
-    <string>Listen</string>
+   <property name="currentIndex">
+    <number>1</number>
    </property>
-  </widget>
-  <widget class="QLabel" name="title_label">
-   <property name="geometry">
-    <rect>
-     <x>150</x>
-     <y>270</y>
-     <width>291</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>title</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
-  <widget class="QLabel" name="image_label">
-   <property name="geometry">
-    <rect>
-     <x>200</x>
-     <y>70</y>
-     <width>191</width>
-     <height>181</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QLabel" name="artist_label">
-   <property name="geometry">
-    <rect>
-     <x>150</x>
-     <y>290</y>
-     <width>291</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>artist</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
+   <widget class="QWidget" name="player_page">
+    <widget class="QLabel" name="image_label">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>200</width>
+       <height>200</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="stop_btn">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>150</y>
+       <width>40</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton#stop_btn{
+background-image : url(:/LatestListener/Resources/stop_btn.png);
+border-radius : 20px;
+}</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="play_btn">
+     <property name="geometry">
+      <rect>
+       <x>220</x>
+       <y>150</y>
+       <width>40</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton#play_btn{
+background-image : url(:/LatestListener/Resources/pause_btn.png);
+border-radius : 20px;
+}</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QSlider" name="volume_slider">
+     <property name="geometry">
+      <rect>
+       <x>340</x>
+       <y>160</y>
+       <width>50</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="QLabel" name="title_label">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>20</y>
+       <width>200</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Meiryo UI</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>title</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="artist_label">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>80</y>
+       <width>200</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Meiryo UI</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>artist</string>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="setting_page">
+    <widget class="QPushButton" name="listen_btn">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>200</width>
+       <height>200</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton#listen_btn{
+background-image : url(:/LatestListener/Resources/listen_btn.png);
+}</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="genre_box">
+     <property name="geometry">
+      <rect>
+       <x>225</x>
+       <y>100</y>
+       <width>150</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Meiryo UI</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <item>
+      <property name="text">
+       <string>J-Pop</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Hip-Hop/Rap</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Children's Music</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Country</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>R&amp;B/Soul</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>K-Pop</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Classical</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Electronic</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Blues</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Opera</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Rock</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Jazz</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Anime</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QLabel" name="genre_label">
+     <property name="geometry">
+      <rect>
+       <x>265</x>
+       <y>70</y>
+       <width>70</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Meiryo UI</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Genre</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </widget>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

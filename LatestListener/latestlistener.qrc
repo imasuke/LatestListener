@@ -1,4 +1,8 @@
 <RCC>
-    <qresource prefix="LatestListener">
-    </qresource>
+  <qresource prefix="LatestListener">
+    <file>Resources/pause_btn.png</file>
+    <file>Resources/stop_btn.png</file>
+    <file>Resources/play_btn.png</file>
+    <file>Resources/listen_btn.png</file>
+  </qresource>
 </RCC>
